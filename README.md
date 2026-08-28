@@ -127,7 +127,7 @@ Build a secure, scalable online exam platform with auto-grading and analytics.
 1. **Clone the repo:**
    ```bash
    git clone https://github.com/[your-username]/cloud-system-design-portfolio.git
-   cd cloud-system-design-portfolio
+   cd cloud_system_design_placement
    ```
 
 2. **Check weekly progress:**  

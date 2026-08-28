@@ -1,7 +1,6 @@
 # Week 12: High-Level Architecture (2 Problems)
 
 **Week:** 12  
-**Date:** [Date Range]
 
 ## Objective
 

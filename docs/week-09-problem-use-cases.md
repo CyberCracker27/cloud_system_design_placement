@@ -1,134 +1,398 @@
-# Week 9: 5 Problem Use Cases (5 Different System Designs)
+# Week 09: Problem Use Cases
 
-**Week:** 9  
-
-## Objective
-
-Identify 5 distinct system design problems and define one key use case for each. These will form the basis for shortlisting 2 final projects in Week 10.
+**Week:** 09
+**Topic:** 5 Problem Use Cases – 5 Different System Designs
 
 ---
 
-## 1. Cloud-Based Expense Tracking & Analytics System
+## 🎯 Objective
 
-**Type:** High System Design (Cloud-Deployable)
+Identify **5 different real-world system design problems** and define a key use case for each problem.
 
-### Use Case: Transaction Logging & Analytics Dashboard
-
-**Description:**  
-A user logs daily income and expenses with categories (e.g., food, travel, salary). The system aggregates this data and displays an interactive dashboard with:
-
-- Monthly spending trends  
-- Category-wise breakdown  
-- Budget alerts and anomaly detection  
-
-**Actors:** User, Transaction Service, Analytics Service  
-**Pre-conditions:** User is registered and logged in  
-**Post-conditions:** Transactions are stored; dashboard reflects updated data  
-
-**Key Challenges:**  
-- Efficient aggregation of large transaction datasets  
-- Real-time dashboard updates  
-- Integration of ML for predictions and anomaly detection  
+These 5 problems will be evaluated in **Week 10**, where 2 problems will be shortlisted for further study.
 
 ---
 
-## 2. Online Quiz / Exam Management System
+# 1. Cloud-Based Expense Tracking & Analytics System
 
-**Type:** High System Design (Cloud-Deployable)
+## System Type
 
-### Use Case: Timed Exam Attempt with Auto-Grading
+Cloud-Based Data Management and Analytics System
 
-**Description:**  
-A student starts a timed exam, answers MCQs and coding questions, and submits. The system:
+## Use Case
 
-- Enforces time limits  
-- Auto-saves answers periodically  
-- Auto-grades MCQs and code submissions immediately after submission  
+**Transaction Logging and Analytics Dashboard**
 
-**Actors:** Student, Attempt Service, Grading Service  
-**Pre-conditions:** Exam is published; student is enrolled  
-**Post-conditions:** Attempt is recorded; grades are computed and stored  
+## Problem Description
 
-**Key Challenges:**  
-- Handling high concurrency during peak exam times  
-- Secure code execution in isolated sandboxes  
-- Preventing cheating (tab-switch detection, randomized questions)  
+Users need an efficient way to record, manage, and analyze their income and expenses. The system stores financial transactions and provides analytics through an interactive dashboard.
 
----
+## Actors
 
-## 3. Real-Time Collaborative Whiteboard
+* User
+* Transaction Service
+* Analytics Service
+* Notification Service
 
-**Type:** High System Design (Cloud-Deployable)
+## Main Flow
 
-### Use Case: Multi-User Real-Time Drawing
+1. User logs into the system.
+2. User adds an income or expense.
+3. Transaction Service validates the transaction.
+4. Transaction is stored in the database.
+5. Analytics Service processes the transaction.
+6. Dashboard updates financial statistics.
+7. Notification Service generates budget alerts when required.
 
-**Description:**  
-Multiple users join a shared whiteboard room and draw/annotate simultaneously. Changes are synced in real time so all users see the same canvas.
+## Preconditions
 
-**Actors:** User, WebSocket Server, Whiteboard Service  
-**Pre-conditions:** User has a shareable room link  
-**Post-conditions:** All users see synchronized canvas updates  
+* User is registered.
+* User is authenticated.
 
-**Key Challenges:**  
-- Low-latency real-time sync via WebSockets  
-- Conflict resolution when multiple users edit simultaneously  
-- Scaling to many concurrent rooms and users  
+## Postconditions
 
----
+* Transaction is stored.
+* Financial statistics are updated.
+* Budget alerts are generated when required.
 
-## 4. Food Delivery Ordering System
+## Key Features
 
-**Type:** Low System Design (Domain Modeling & Patterns)
+* Income and expense tracking
+* Category management
+* Budget management
+* Analytics dashboard
+* Spending trends
+* Budget alerts
+* Anomaly detection
 
-### Use Case: Order Placement & Lifecycle Management
+## Key Challenges
 
-**Description:**  
-A customer places an order from a restaurant. The system manages the order lifecycle:
-
-- Order Placed → Preparing → Picked Up → Delivered  
-- Assigns a delivery agent based on proximity and availability  
-
-**Actors:** Customer, Restaurant, Delivery Agent, Order Service  
-**Pre-conditions:** Restaurant is active; delivery agents are available  
-**Post-conditions:** Order is created and assigned; status is tracked  
-
-**Key Challenges:**  
-- State machine for order status transitions  
-- Design patterns (Strategy for pricing, Observer for status updates)  
-- Clean domain modeling without distributed complexity  
+* Handling large transaction datasets
+* Real-time analytics
+* Data consistency
+* Secure financial data storage
+* Scalable cloud infrastructure
 
 ---
 
-## 5. Splitwise-Style Expense Splitting System
+# 2. Online Quiz / Examination Management System
 
-**Type:** Low System Design (Domain Modeling & Algorithms)
+## System Type
 
-### Use Case: Group Expense Splitting & Debt Simplification
+Cloud-Based Examination and Assessment System
 
-**Description:**  
-A group of users adds shared expenses (e.g., rent, food). The system:
+## Use Case
 
-- Splits expenses equally, unequally, or by percentage  
-- Calculates net balances for each user  
-- Suggests minimal transactions to settle all debts  
+**Timed Examination with Automatic Grading**
 
-**Actors:** User, Group, Expense, Split, Settlement  
-**Pre-conditions:** Group is created; users are added  
-**Post-conditions:** Balances are calculated; settlement suggestions are generated  
+## Problem Description
 
-**Key Challenges:**  
-- Multiple split strategies (equal, unequal, percentage)  
-- Efficient balance ledger (avoid tracking every individual transaction)  
-- Debt simplification algorithm (minimize number of transactions)  
+Educational institutions require a reliable online examination platform that can support a large number of students simultaneously while securely managing examinations, submissions, and results.
+
+## Actors
+
+* Student
+* Teacher
+* Administrator
+* Examination Service
+* Question Service
+* Grading Service
+
+## Main Flow
+
+1. Student logs into the system.
+2. Student selects the available examination.
+3. System verifies examination eligibility.
+4. Examination starts and the timer begins.
+5. Student answers questions.
+6. Answers are automatically saved.
+7. Student submits the examination.
+8. Grading Service evaluates the answers.
+9. Result is generated and stored.
+10. Student views the result.
+
+## Preconditions
+
+* Student is registered.
+* Student is enrolled.
+* Examination is published.
+
+## Postconditions
+
+* Examination attempt is stored.
+* Answers are stored.
+* Result is generated.
+
+## Key Features
+
+* User authentication
+* Examination management
+* Question bank
+* Timed examinations
+* Auto-save
+* Automatic grading
+* Result generation
+* Examination analytics
+
+## Key Challenges
+
+* Handling high concurrent users
+* Secure examination environment
+* Preventing unauthorized access
+* Reliable auto-save
+* Automatic grading
+* Secure code execution for programming questions
 
 ---
 
-## Next Steps (Week 10)
+# 3. Real-Time Collaborative Whiteboard System
 
-- Review all 5 use cases.  
-- Shortlist 2 problems (one per final project) based on:  
-  - Complexity and learning potential  
-  - Availability of IEEE/research papers  
-  - Alignment with cloud-deployable high system design goals  
+## System Type
 
-**Deliverable:** [`week-10-2-problems-shortlist.md`](week-10-2-problems-shortlist.md)
+Real-Time Distributed Collaboration System
+
+## Use Case
+
+**Multi-User Real-Time Whiteboard Collaboration**
+
+## Problem Description
+
+Remote teams and students need a platform where multiple users can collaborate on a shared digital whiteboard in real time.
+
+## Actors
+
+* User
+* Collaboration Service
+* WebSocket Server
+* Storage Service
+
+## Main Flow
+
+1. User creates or joins a whiteboard room.
+2. System establishes a real-time connection.
+3. User performs a drawing or editing operation.
+4. Operation is sent to the server.
+5. Server validates the operation.
+6. Server broadcasts the operation to connected users.
+7. Other users receive the update.
+8. Whiteboard state is synchronized.
+
+## Preconditions
+
+* User has access to a whiteboard room.
+* Collaboration session is active.
+
+## Postconditions
+
+* All connected users receive the latest changes.
+* Whiteboard state is stored.
+
+## Key Features
+
+* Real-time drawing
+* Multiple users
+* Room management
+* Text and shape tools
+* Real-time synchronization
+* Whiteboard history
+* Persistent storage
+
+## Key Challenges
+
+* Low-latency communication
+* WebSocket scalability
+* Concurrent editing
+* Conflict resolution
+* State synchronization
+* Handling disconnected users
+
+---
+
+# 4. Food Delivery Ordering System
+
+## System Type
+
+Cloud-Based Distributed E-Commerce System
+
+## Use Case
+
+**Order Placement and Delivery Lifecycle Management**
+
+## Problem Description
+
+Customers need a platform to discover restaurants, order food, make payments, and track deliveries in real time.
+
+## Actors
+
+* Customer
+* Restaurant
+* Delivery Agent
+* Order Service
+* Payment Service
+* Tracking Service
+
+## Main Flow
+
+1. Customer logs into the application.
+2. Customer searches for restaurants.
+3. Customer selects food items.
+4. Customer adds items to the cart.
+5. Customer places the order.
+6. Payment Service processes the payment.
+7. Restaurant receives the order.
+8. Restaurant prepares the food.
+9. Delivery Agent is assigned.
+10. Delivery Agent picks up the order.
+11. Customer tracks the delivery.
+12. Order is delivered.
+
+## Preconditions
+
+* Customer is authenticated.
+* Restaurant is active.
+* Food items are available.
+* Delivery service is available.
+
+## Postconditions
+
+* Order is completed.
+* Payment is recorded.
+* Delivery status is updated.
+
+## Key Features
+
+* Restaurant discovery
+* Menu management
+* Shopping cart
+* Order management
+* Online payment
+* Delivery assignment
+* Real-time tracking
+* Notifications
+* Order history
+
+## Key Challenges
+
+* Order state management
+* Payment reliability
+* Delivery assignment
+* Real-time tracking
+* Location services
+* High traffic during peak hours
+* Distributed service communication
+
+---
+
+# 5. Splitwise-Style Expense Splitting System
+
+## System Type
+
+Collaborative Financial Management System
+
+## Use Case
+
+**Group Expense Splitting and Debt Settlement**
+
+## Problem Description
+
+Groups of users frequently share expenses such as food, rent, travel, and events. Manually calculating individual balances can be complex and error-prone.
+
+The system automatically calculates how much each member owes and generates settlement recommendations.
+
+## Actors
+
+* User
+* Group Service
+* Expense Service
+* Settlement Service
+
+## Main Flow
+
+1. User creates a group.
+2. Members join the group.
+3. User records a shared expense.
+4. Members involved in the expense are selected.
+5. User selects the split method.
+6. System calculates individual shares.
+7. Member balances are updated.
+8. Settlement Service calculates optimized payments.
+9. Users settle their outstanding balances.
+
+## Preconditions
+
+* Group exists.
+* Users are members of the group.
+
+## Postconditions
+
+* Expense is recorded.
+* Individual balances are updated.
+* Settlement recommendations are generated.
+
+## Key Features
+
+* Group management
+* Expense tracking
+* Equal splitting
+* Unequal splitting
+* Percentage-based splitting
+* Balance calculation
+* Debt simplification
+* Settlement tracking
+
+## Key Challenges
+
+* Multiple split strategies
+* Accurate balance calculation
+* Debt simplification
+* Transaction consistency
+* Concurrent updates
+
+---
+
+# 📊 Comparison of 5 Problems
+
+| # | Problem                      | Complexity | Scalability | Cloud Potential | Research Potential |
+| - | ---------------------------- | ---------- | ----------- | --------------- | ------------------ |
+| 1 | Expense Tracking & Analytics | High       | High        | High            | High               |
+| 2 | Online Examination System    | High       | High        | High            | High               |
+| 3 | Collaborative Whiteboard     | High       | Very High   | Very High       | High               |
+| 4 | Food Delivery System         | High       | High        | High            | High               |
+| 5 | Expense Splitting System     | Medium     | Medium      | Medium          | Medium             |
+
+---
+
+# 🔍 Evaluation Criteria for Week 10
+
+The five problems will be evaluated using:
+
+1. **System Complexity**
+2. **Scalability**
+3. **Cloud Deployment Potential**
+4. **Real-World Relevance**
+5. **Research Availability**
+6. **Innovation Potential**
+7. **Implementation Feasibility**
+8. **Security Requirements**
+9. **Performance Requirements**
+10. **Future Expansion Potential**
+
+---
+
+# 📌 Week 9 Conclusion
+
+Five different system design problems have been identified:
+
+1. **Cloud-Based Expense Tracking & Analytics System**
+2. **Online Quiz / Examination Management System**
+3. **Real-Time Collaborative Whiteboard System**
+4. **Food Delivery Ordering System**
+5. **Splitwise-Style Expense Splitting System**
+
+The five problems will be evaluated in **Week 10**, and the best **2 problems out of 5** will be shortlisted for literature survey and high-level architecture design.
+
+---
+
+## 🔄 Next Step
+
+**Week 10 → Shortlist 2 Problems out of 5**
